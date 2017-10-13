@@ -2,24 +2,30 @@
 
 // Part one
 
+
+	var hovers = d3.selectAll('.hover-me');
+
+	var filteredHovers = d3.select('#part-one').selectAll('.hover-me');
+
 	// Click handler
 	d3.selectAll('#click-me')
 	.on('click', function() {
-		if (this.style.backgroundColor) {
-			this.style.backgroundColor = '';
+
+		if (this.style.transform) {
+			this.style.transform = '';
 		} else {
-			this.style.backgroundColor = 'red';
+			this.style.transform = 'translate(300px, 200px)';
 		}
 	});
 
 	// Hover handler
 	d3.selectAll('.hover-me')
-	.on('mouseover', function() {
-		this.style.backgroundColor = 'yellow';
-	})
-	.on('mouseleave', function() {
-		this.style.backgroundColor = '';
-	});
+		.on('mouseover', function() {
+			this.style.color = 'darkorchid';
+		})
+		.on('mouseleave', function() {
+			this.style.color = '';
+	});	
 
 
 // Part three
@@ -39,11 +45,22 @@
 	d3.select('#part-three')
 	.selectAll('rect')
 	.on('mouseover', function() {
-		this.style.fill = "yellow";
+		this.style.stroke = "green";
 	})
 	.on('mouseleave', function() {
-		this.style.fill = "blue";
+		this.style.stroke = "purple";
 	});
+
+
+// Illustrator
+
+	d3.selectAll('#blobby')
+		.on('mouseenter', function() {
+			this.style.fill = "magenta";
+		})
+		.on('mouseleave', function() {
+			this.style.fill = "red";
+		});
 
 
 
